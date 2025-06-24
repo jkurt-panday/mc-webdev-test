@@ -106,3 +106,42 @@ let message = (score >= 70 && attendance >= 80 || passedExam)
                 : 'Student nees to re-evaluate the course requirements.'
 
 console.log(message)
+
+
+// challenge from the lesson
+
+let allStudents = [
+  'C-',
+  'B-',
+  3,
+  4,
+  1,
+  2
+]
+
+let studentsWhoPass = [];
+
+/* logic
+    if any letter grade is within the switch cases, the index from the
+        'allStudents' array is pushed to the 'studentsWhoPass' array
+    if any number grade is above or equal to 3, the index from the 'allStudents'
+        array is pushed to the 'studentsWhoPassed' array, 
+        the conditions won't check the letter grade
+*/
+
+for (let i = 0; i < allStudents.length; i++) {
+    switch(allStudents[i]) {
+        case 'A':
+        case 'B':
+        case 'A-':
+        case 'B-':
+        case 'C':
+            studentsWhoPass.push(i)
+            break
+    }
+    if (allStudents[i] >= 3) studentsWhoPass.push(i)
+}
+
+for (let i = 0; i < studentsWhoPass.length; i++) {
+                console.log(`Student ${studentsWhoPass[i]} passed`)
+            }
