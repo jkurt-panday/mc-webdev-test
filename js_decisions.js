@@ -49,3 +49,60 @@ let secondNumber = 10
 let biggestNumber  = firstNumber > secondNumber ? firstNumber : secondNumber
 
 console.log(biggestNumber)
+
+// Logical AND (&&)
+let age = 25;
+let hasLicense = true;
+
+// if (age >= 18 && hasLicense) {
+//   console.log("User is eligible to drive."); // This will be logged
+// } else {
+//   console.log("User is not eligible to drive.");
+// }
+
+let passed = (age >= 18 && hasLicense) 
+                ? 'User is eligible to drive.' 
+                : 'User is not eligible to drive'
+console.log(passed)
+
+// Logical OR (||)
+let isWeekend = false;
+let isHoliday = true;
+
+// if (isWeekend || isHoliday) {
+//   console.log("It's a day off!"); // This will be logged
+// } else {
+//   console.log("Time to work.");
+// }
+
+let toWorkOrNot = (isWeekend || isHoliday) ? 'It\'s a day off' : 'Time to work'
+console.log(toWorkOrNot)
+
+// Logical NOT (!)
+let isLoggedIn = false;
+
+// if (!isLoggedIn) {
+//   console.log("Please log in to continue."); // This will be logged
+// } else {
+//   console.log("Welcome back!");
+// }
+
+(!isLoggedIn) ? console.log('Please log in to continue') : console.log('Welcome back')
+
+// Combining logical operators
+let score = 85;
+let attendance = 92;
+let passedExam = true;
+
+// if ((score >= 70 && attendance >= 80) || passedExam) {
+//   console.log("Student has successfully completed the course."); // This will be logged
+// } else {
+//   console.log("Student needs to re-evaluate the course requirements.");
+// }
+
+// ternary equivalent
+let message = (score >= 70 && attendance >= 80 || passedExam) 
+                ? 'Student has successfully completed the course.' 
+                : 'Student nees to re-evaluate the course requirements.'
+
+console.log(message)
