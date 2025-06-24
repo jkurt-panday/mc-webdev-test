@@ -40,3 +40,20 @@ do {
     console.log(i)
     i++
 } while(i < 3)
+
+
+// challenge
+
+console.log("Challenge")
+
+// for each
+
+iceCreamFlavors.forEach((elem) => console.log(elem))
+
+// for of
+for (const elem of iceCreamFlavors) {
+    console.log(elem)
+}
+
+// map()
+iceCreamFlavors.map((elem) => console.log(elem))
