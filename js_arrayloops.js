@@ -48,12 +48,40 @@ console.log("Challenge")
 
 // for each
 
-iceCreamFlavors.forEach((elem) => console.log(elem))
+// iceCreamFlavors.forEach((elem) => console.log(elem))
 
 // for of
-for (const elem of iceCreamFlavors) {
-    console.log(elem)
-}
+// for (const elem of iceCreamFlavors) {
+//     console.log(elem)
+// }
 
 // map()
-iceCreamFlavors.map((elem) => console.log(elem))
+// iceCreamFlavors.map((elem) => console.log(elem))
+
+
+
+// assignment
+
+// lists every 3rd number
+
+/*  0 1 2
+    3 4 5
+    6 7 8
+    9 10 11 
+    12 13 14
+    15 16 17
+    18 19 20*/
+
+for (let i = 1; i <= 20; i++) {
+    if (i % 3 == 2)
+        console.log([i])
+}
+
+/*  1 2 3
+    4 5 6 
+    7 8 9 */
+
+for (let i = 1; i < 20; i++) {
+    if (i % 3 == 0) 
+        console.log((i))
+}
