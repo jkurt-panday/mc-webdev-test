@@ -48,3 +48,32 @@ function dragElement(terrariumElement) {
         document.onpointermove = null;
     }
 }
+
+bringToFront(document.getElementById('plant1'))
+bringToFront(document.getElementById('plant2'))
+bringToFront(document.getElementById('plant3'))
+bringToFront(document.getElementById('plant4'))
+bringToFront(document.getElementById('plant5'))
+bringToFront(document.getElementById('plant6'))
+bringToFront(document.getElementById('plant7'))
+bringToFront(document.getElementById('plant8'))
+bringToFront(document.getElementById('plant9'))
+bringToFront(document.getElementById('plant10'))
+bringToFront(document.getElementById('plant11'))
+bringToFront(document.getElementById('plant12'))
+bringToFront(document.getElementById('plant13'))
+bringToFront(document.getElementById('plant14'))
+
+/*  */
+
+function bringToFront(terrariumElement) {   
+    terrariumElement.ondblclick = function(e) {
+        z = window.getComputedStyle(terrariumElement).getPropertyValue('z-index')
+        console.log(z)
+        z++
+        z = z.toString()
+        console.log(z)
+        terrariumElement.style.zIndex = z
+
+    }
+}
