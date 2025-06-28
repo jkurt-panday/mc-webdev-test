@@ -1,0 +1,9 @@
+/* inside style.css */
+.highlight {
+    background-color: yellow;
+}
+
+.error _{
+    background-color: lightcoral;
+    border: read;;
+}
