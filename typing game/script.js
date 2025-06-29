@@ -31,6 +31,9 @@ document.getElementById('start').addEventListener('click', () => {
     // reset the word index for tracking
     wordIndex = 0
 
+    // todo challenge 1 done
+    typedValueElement.disabled = false;
+
     // UI updates
     // Create an array of span elements so we can set a class
     const spanWords = words.map(function(word) {
@@ -65,6 +68,9 @@ document.getElementById('start').addEventListener('click', () => {
             const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
                 1000} seconds.`;
             messageElement.innerText = message;
+
+            // todo challenge 1 done
+            typedValueElement.disabled = true;
         }
         else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
             // end of word
@@ -90,3 +96,7 @@ document.getElementById('start').addEventListener('click', () => {
         }
     })
 })
+
+function disableInput() {
+
+}
