@@ -8,9 +8,15 @@
 </head>
 <body>
     <h1>Typing game!</h1>
-    <p>Practice your typing skills with a quotre from sherlock Holmes. Click **start** to begin!</p>
-    <p id="quote"></p>      <!-- This will displayour quote -->
-    <p id="message"></p>    <!-- This will display any status messages -->
+    <p>Practice your typing skills with a quote from Sherlock Holmes. Click **start** to begin!</p>
+    <p id="quote"></p>      <!-- This will displayour quote -->    
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close">&times;</span><br>
+            <p id="message"></p>    <!-- This will display any status messages -->        
+        </div>
+        <p>some text in the modal</p>
+    </div>
     <div>
         <input type="text" aria-label="current word" id="typed-value">  <!-- The textbox for typing -->
         <button type="button" id="start">Start</button> <!-- To start the game -->
