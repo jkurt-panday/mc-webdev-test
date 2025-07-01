@@ -64,10 +64,12 @@ document.getElementById('start').addEventListener('click', () => {
         if (typedValue === currentWord && wordIndex === words.length - 1) {
             // end of sentence
             // Display success
-            const elapsedTime = new Date().getTime() - startTime;
-            const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
-                1000} seconds.`;
-            messageElement.innerText = message;
+            // const elapsedTime = new Date().getTime() - startTime;
+            // const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
+            //     1000} seconds.`;
+            // messageElement.innerText = message;
+
+            displayModal()
 
             // todo challenge 1 done
             typedValueElement.disabled = true;
@@ -97,6 +99,16 @@ document.getElementById('start').addEventListener('click', () => {
     })
 })
 
-function disableInput() {
+const modal = document.getElementById('myModal');
+const closeX = document.getElementById('close')
 
+function displayModal () {
+    modal.style.display = 'block'
+    const elapsedTime = new Date().getTime() - startTime;
+            const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
+                1000} seconds.`;
+            messageElement.innerText = message;
+}
+closeX.onclick = () => {
+    modal.style.display = 'none';
 }
