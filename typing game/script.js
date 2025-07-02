@@ -64,12 +64,18 @@ document.getElementById('start').addEventListener('click', () => {
         if (typedValue === currentWord && wordIndex === words.length - 1) {
             // end of sentence
             // Display success
-            // const elapsedTime = new Date().getTime() - startTime;
-            // const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
-            //     1000} seconds.`;
+            const elapsedTime = new Date().getTime() - startTime;
+            const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
+                1000} seconds.`;
             // messageElement.innerText = message;
+            const highscore = (elapsedTime / 1000)//.toString()
+            let oldhigh = localStorage.getItem("highscore")
 
-            displayModal()
+            if (highscore > parseFloat(oldhigh))
+                console.log(highscore, parseFloat(oldhigh))
+                localStorage.setItem("highscore", highscore)
+
+                displayModal(highscore, message)
 
             // todo challenge 1 done
             typedValueElement.disabled = true;
@@ -101,13 +107,13 @@ document.getElementById('start').addEventListener('click', () => {
 
 const modal = document.getElementById('myModal');
 const closeX = document.getElementById('close')
+const highscore = document.getElementById('highscore')
 
-function displayModal () {
+function displayModal (elapsedTime, message) {
     modal.style.display = 'block'
-    const elapsedTime = new Date().getTime() - startTime;
-            const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
-                1000} seconds.`;
-            messageElement.innerText = message;
+    messageElement.innerText = message;
+    highscore.innerText = `Highscore: ${elapsedTime} seconds`
+
 }
 closeX.onclick = () => {
     modal.style.display = 'none';
