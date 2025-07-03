@@ -22,6 +22,9 @@ const quoteElement = document.getElementById('quote')
 const messageElement = document.getElementById('message')
 const typedValueElement = document.getElementById('typed-value')
 
+// set 0 as original highscore
+localStorage.setItem("highscore", "null")
+
 document.getElementById('start').addEventListener('click', () => {
     // get a quote
     const quoteIndex = Math.floor(Math.random() * quotes.length);
@@ -65,17 +68,27 @@ document.getElementById('start').addEventListener('click', () => {
             // end of sentence
             // Display success
             const elapsedTime = new Date().getTime() - startTime;
-            const message = `CONGRATULATIONS!  You finished in ${elapsedTime / 
-                1000} seconds.`;
+            const currscore = (elapsedTime / 1000)//.toString()
+            const message = `CONGRATULATIONS!  You finished in ${currscore} seconds.`;
             // messageElement.innerText = message;
-            const highscore = (elapsedTime / 1000)//.toString()
-            let oldhigh = localStorage.getItem("highscore")
+            let oldhigh = parseFloat(localStorage.getItem("highscore"))
+            console.log('1 oldhigh', oldhigh)
+            console.log('1 current score', currscore)
 
-            if (highscore > parseFloat(oldhigh))
-                console.log(highscore, parseFloat(oldhigh))
-                localStorage.setItem("highscore", highscore)
-
-                displayModal(highscore, message)
+            // assign new highscore if highscore is NaN
+            if (!oldhigh) {  
+                localStorage.setItem("highscore", currscore)
+                console.log('oldhigh is nan')
+                displayModal(currscore, message)
+            } else if (currscore < oldhigh) {
+                // reset new highscore
+                localStorage.setItem("highscore", currscore.toString())
+                console.log('setting new highscore')
+                displayModal(oldhigh, message)
+            } else if (currscore > oldhigh) {
+                console.log('NOT setting new highscore')
+                displayModal(oldhigh, message)
+            }
 
             // todo challenge 1 done
             typedValueElement.disabled = true;
@@ -109,10 +122,10 @@ const modal = document.getElementById('myModal');
 const closeX = document.getElementById('close')
 const highscore = document.getElementById('highscore')
 
-function displayModal (elapsedTime, message) {
+function displayModal (oldhigh, message) {
     modal.style.display = 'block'
     messageElement.innerText = message;
-    highscore.innerText = `Highscore: ${elapsedTime} seconds`
+    highscore.innerText = `Highscore: ${oldhigh} seconds`
 
 }
 closeX.onclick = () => {
