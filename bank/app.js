@@ -2,7 +2,8 @@
 
 const routes = {
     '/login': {templateId: 'login'},
-    '/dashboard': {templateId: 'dashboard'}
+    '/dashboard': {templateId: 'dashboard'},
+    '/credit': {templateId: 'credit'}
 };
 
 function updateRoute() {
@@ -29,3 +30,14 @@ function navigate(path) {
     window.history.pushState({}, path, path);
     updateRoute();  
 }
+
+// function to get the URL when a link is clicked and prevent the browser's
+// default link behavior
+
+function onLinkClick(event) {
+    event.preventDefault();
+    navigate(event.target.href);
+}
+
+window.onpopstate = () => updateRoute()
+updateRoute()
