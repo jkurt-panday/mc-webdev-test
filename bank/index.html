@@ -23,7 +23,8 @@
      <template id="dashboard">
         <header>
             <h1>Bank App</h1>
-            <a href="/login" onclick="onLinkClick(event)">Logout</a>
+            <a href="/login" onclick="onLinkClick(event)">Logout</a><br>
+            <a href="/credit" onclick="onLinkClick(event)">Credit</a>
         </header>
         <section>
             Balance: 100$
@@ -43,5 +44,19 @@
         </section>
      </template>
     
+    <!-- todo challenge  -->
+    <!-- add a new template and route for a third page that shows the credit for this app -->
+
+    <template id="credit">
+        <header>
+            <h1>Credit</h1>
+            <a href="/dashboard" onclick="onLinkClick(event)">Dashboard</a>
+        </header>
+        <section>
+            <br>
+            Creator of this site
+        </section>
+    </template>
+
 </body>
 </html>
