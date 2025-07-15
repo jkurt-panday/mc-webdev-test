@@ -43,7 +43,9 @@ window.onpopstate = () => updateRoute()
 updateRoute()
 
 
-// register function that sends data to the server
+// register function that gets data as key/value pairs
+// then convert them to an object
+// then serialize data to JSON format
 function register() {
     const registerForm = document.getElementById('registerForm');
     // FormData interface is built in
@@ -53,4 +55,18 @@ function register() {
     console.log(data)
     const jsonData = JSON.stringify(data)
     console.log(jsonData);
+}
+
+// createAccount function the sends data to the server
+async function createAccount(accout) {
+    try {
+        const response = await fetch('//localhost:5000/api/accounts', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: account
+        });
+        return await response.json();
+    } catch (error) {
+        return { error: error.message || 'Unknown error'};
+    }
 }
