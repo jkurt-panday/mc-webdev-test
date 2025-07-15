@@ -46,19 +46,27 @@ updateRoute()
 // register function that gets data as key/value pairs
 // then convert them to an object
 // then serialize data to JSON format
-function register() {
+async function register() {
     const registerForm = document.getElementById('registerForm');
     // FormData interface is built in
     const formData = new FormData(registerForm);
-    console.log(formData)
+    // console.log(formData)
     const data = Object.fromEntries(formData);
-    console.log(data)
+    // console.log(data)
     const jsonData = JSON.stringify(data)
-    console.log(jsonData);
+    // console.log(jsonData);
+
+    const result = await createAccount(jsonData)
+
+    if (result.error) {
+        return console.log('An error occured: ', result.error);
+    }
+
+    console.log('Account created', result)
 }
 
 // createAccount function the sends data to the server
-async function createAccount(accout) {
+async function createAccount(account) {
     try {
         const response = await fetch('//localhost:5000/api/accounts', {
             method: 'POST',
