@@ -6,7 +6,12 @@
 
 h1, h2 {
     text-align: center;
-    color: white;
+    color: #0e71e7;
+}
+
+
+h1 {
+    color: white    ;
 }
 
 body {
@@ -36,17 +41,16 @@ label {
     padding: 2px 0;
 }
 
-/* template {
-    display: grid;
-    place-items: center;
-    justify-items: c;
-} */
-
-
 /* styling with ids and classes */
-#login {
-    display: block;
+#grandparent {
+    display: flex;
+    justify-content: center;
+}
+
+#login-container {
+    background-color: #f4f4f6;
     width: 500px;
+    position: relative;
 }
 
 #loginForm, #registerForm {
@@ -58,7 +62,6 @@ label {
 }
 
 #login-comp, #register-section {
-    /* border: 1px solid red; */
     padding: 10px;
     width: 50%;
 }
@@ -74,5 +77,22 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: grey;
+    background-color: #f4f4f6;
+}
+
+#hr0 {
+    display: flex;
+}
+
+#or {
+    color: grey;
+}
+
+#hr, #hr2 {
+    border: 1px solid grey;
+    box-sizing: border-box;
+    margin: 0 10px;
+    width: 50%;
+    height: 1px;
+    margin-top: 7px;
 }
