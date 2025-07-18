@@ -96,3 +96,10 @@ label {
     height: 1px;
     margin-top: 7px;
 }
+
+@media screen and (max-width: 500px){
+    #grandparent div {
+        width: 70%;
+        font-size: 20px;
+    }
+}
