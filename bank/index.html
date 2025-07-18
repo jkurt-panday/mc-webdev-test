@@ -15,38 +15,46 @@
     <!-- login page template -->
     <template id="login">
             <h1>Bank App</h1>
-            <div id="login-container">
-                <section id="login-section">
-                    <!-- <a href="/dashboard" onclick="onLinkClick(event)">Login</a> -->
-                     <div id="logh2">
-                        <h2>Login</h2>
-                     </div>
-                    <form action="" id="loginForm">
-                        <div id="login-comp">
-                            <label for="username">Username</label><br>
-                            <input type="text" id="username" name="user"><br>
-                            <button>Login</button>
+            <!-- grandparent div -->
+             <div id="grandparent">
+                <!-- parent div -->
+                <div id="login-container">
+                    <section id="login-section">
+                        <!-- <a href="/dashboard" onclick="onLinkClick(event)">Login</a> -->
+                        <div id="logh2">
+                            <h2>Login</h2>
                         </div>
-                    </form>
-                </section>
-                <hr>
-                <div id="regh2">
-                    <h2>Register</h2>
-                </div>
-                <form id="registerForm" action="javascript:register()" method="POST">
-                    <section id="register-section">
-                        <label for="user">Username</label><br>
-                        <input type="text" id="user" name="user" required maxlength="20"><br>
-                        <label for="currency">Currency</label><br>
-                        <input type="text" id="currency" name="currency" value="$" required maxlength="5"><br>
-                        <label for="description">Description</label><br>
-                        <input type="text" id="description" name="description" maxlength="100"><br>
-                        <label for="balance">Current balance</label><br>
-                        <input type="number" id="balance" name="balance" value="0"><br>
-                        <button>Register</button>
+                        <form action="" id="loginForm">
+                            <div id="login-comp">
+                                <label for="username">Username</label><br>
+                                <input type="text" id="username" name="user"><br>
+                                <button>Login</button>
+                            </div>
+                        </form>
                     </section>
-                </form>
-            </div>
+                    <div id="hr0">
+                        <div id="hr"></div>
+                        <div id="or">OR</div>
+                        <div id="hr2"></div>
+                    </div>
+                    <div id="regh2">
+                        <h2>Register</h2>
+                    </div>
+                    <form id="registerForm" action="javascript:register()" method="POST">
+                        <section id="register-section">
+                            <label for="user">Username</label><br>
+                            <input type="text" id="user" name="user" required maxlength="20"><br>
+                            <label for="currency">Currency</label><br>
+                            <input type="text" id="currency" name="currency" value="$" required maxlength="5"><br>
+                            <label for="description">Description</label><br>
+                            <input type="text" id="description" name="description" maxlength="100"><br>
+                            <label for="balance">Current balance</label><br>
+                            <input type="number" id="balance" name="balance" value="0"><br>
+                            <button>Register</button>
+                        </section>
+                    </form>
+                </div>
+             </div>
     </template>
 
     <!-- dashboard page template -->
