@@ -22,12 +22,13 @@
                     <section id="login-section">
                         <!-- <a href="/dashboard" onclick="onLinkClick(event)">Login</a> -->
                         <div id="logh2">
-                            <h2>Login</h2>
+                            <h2 class="loginh2">Login</h2>
                         </div>
                         <form action="javascript:login()" id="loginForm">
                             <div id="login-comp">
                                 <label for="username">Username</label><br>
                                 <input type="text" id="username" name="user"><br>
+                                <div id="loginError" role="alert"></div>
                                 <button>Login</button>
                             </div>
                         </form>
@@ -38,7 +39,7 @@
                         <div id="hr2"></div>
                     </div>
                     <div id="regh2">
-                        <h2>Register</h2>
+                        <h2 class="loginh2">Register</h2>
                     </div>
                     <form id="registerForm" action="javascript:register()" method="POST">
                         <section id="register-section">
@@ -50,6 +51,7 @@
                             <input type="text" id="description" name="description" maxlength="100"><br>
                             <label for="balance">Current balance</label><br>
                             <input type="number" id="balance" name="balance" value="0"><br>
+                            <div id="regError" role="alert"></div>
                             <button>Register</button>
                         </section>
                     </form>
@@ -65,7 +67,10 @@
             <a href="/credit" onclick="onLinkClick(event)">Credit</a>
         </header>
         <section>
-            Balance: 100$
+            Balance: <span id="balance"></span><span id="currency"></span>
+        </section>
+        <section>
+            <h2 id="description"></h2>
         </section>
         <section>
             <h2>Transactions</h2>
