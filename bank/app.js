@@ -4,7 +4,7 @@ let account = null;
 
 const routes = {
     '/login': {templateId: 'login'},
-    '/dashboard': {templateId: 'dashboard'},
+    '/dashboard': {templateId: 'dashboard', init: updateDashboard},
     '/credit': {templateId: 'credit'}
 };
 
@@ -23,6 +23,10 @@ function updateRoute() {
     
     app.innerHTML = '';
     app.appendChild(view);
+
+    if (typeof route.init === 'function') {
+        route.init();
+    }
 }
 
 updateRoute()
@@ -61,11 +65,12 @@ async function register() {
     const result = await createAccount(jsonData)
 
     if (result.error) {
-        return console.log('An error occured: ', result.error);
+        // return console.log('An error occured: ', result.error);
+        return updateElement('regError', result.error)
     }
 
     console.log('Account created', result)
-    
+
     account = result;
     navigate('/dashboard')
 }
@@ -93,7 +98,8 @@ async function login() {
     const data = await getAccount(user);
 
     if (data.error) {
-        return console.log('loginError', data.error);
+        // return console.log('loginError', data.error);
+        return updateElement('loginError', data.error);
     }
 
     account = data
@@ -102,10 +108,26 @@ async function login() {
 
 async function getAccount(user) {
     try {
-        const response = await fetch('//localhost:5000/api/accounts' + encodeURIComponent(user));
-        console.log(response.json())
+        const response = await fetch('//localhost:5000/api/accounts/' + encodeURIComponent(user));
+        // console.log(response.json())
         return await response.json();
     } catch (error) {
         return {error: error.message || 'Unknown error'};
     }
+}
+
+function updateElement(id, text) {
+    const element = document.getElementById(id);
+    element.textContent = text;
+}
+
+function updateDashboard() {
+    // check if account exist or not
+    if (!account) {
+        return navigate('/login')
+    }
+
+    updateElement('description', account.description);
+    updateElement('balance', account.balance.toFixed(2));
+    updateElement('currency', account.currency);
 }
