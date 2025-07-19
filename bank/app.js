@@ -116,9 +116,10 @@ async function getAccount(user) {
     }
 }
 
-function updateElement(id, text) {
+function updateElement(id, textOrNode) {
     const element = document.getElementById(id);
-    element.textContent = text;
+    element.textContent = '';   // Removes all children
+    element.append(textOrNode)
 }
 
 function updateDashboard() {
@@ -130,4 +131,24 @@ function updateDashboard() {
     updateElement('description', account.description);
     updateElement('balance', account.balance.toFixed(2));
     updateElement('currency', account.currency);
+
+    const transactionRows = document.createDocumentFragment();
+    for (const transaction of account.transactions) {
+        const transactionRow = createTransactionRow(transaction);
+        transactionRows.appendChild(transactionRow);
+    }
+    updateElement('transactions', transactionRows);
+}
+
+// function creates a new table row and fills in its contents using transaction
+// data, to be used in updateDashboard() to populate the table
+function createTransactionRow(transaction) {
+    const template = document.getElementById('transaction');
+    const transactionRow = template.content.cloneNode(true);
+    const tr = transactionRow.querySelector('tr');
+
+    tr.children[0].textContent = transaction.date;
+    tr.children[1].textContent = transaction.object;
+    tr.children[2].textContent = transaction.amount.toFixed(2);
+    return transactionRow;
 }
