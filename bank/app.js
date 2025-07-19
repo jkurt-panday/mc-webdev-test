@@ -1,5 +1,7 @@
 // displaying template elements
 
+let account = null;
+
 const routes = {
     '/login': {templateId: 'login'},
     '/dashboard': {templateId: 'dashboard'},
@@ -63,6 +65,9 @@ async function register() {
     }
 
     console.log('Account created', result)
+    
+    account = result;
+    navigate('/dashboard')
 }
 
 // createAccount function the sends data to the server
@@ -76,5 +81,31 @@ async function createAccount(account) {
         return await response.json();
     } catch (error) {
         return { error: error.message || 'Unknown error'};
+    }
+}
+
+
+// code to login using an existing account, and fetch its data
+async function login() {
+    const loginForm = document.getElementById('loginForm')
+    const user = loginForm.user.value;      // value is accessed by its name attribute
+
+    const data = await getAccount(user);
+
+    if (data.error) {
+        return console.log('loginError', data.error);
+    }
+
+    account = data
+    navigate('/dashboard')
+}
+
+async function getAccount(user) {
+    try {
+        const response = await fetch('//localhost:5000/api/accounts' + encodeURIComponent(user));
+        console.log(response.json())
+        return await response.json();
+    } catch (error) {
+        return {error: error.message || 'Unknown error'};
     }
 }
