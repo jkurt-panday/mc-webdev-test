@@ -6,7 +6,7 @@
 
 h1, h2 {
     text-align: center;
-    color: #0e71e7;
+    color: white;
 }
 
 h1 {
@@ -103,6 +103,15 @@ label {
     width: 50%;
     height: 1px;
     margin-top: 7px;
+}
+
+#loginError, #regError {
+    color:  red;
+    font-size: 0.8rem;
+}
+
+.loginh2 {
+    color: #0e71e7;
 }
 
 @media screen and (max-width: 500px){
