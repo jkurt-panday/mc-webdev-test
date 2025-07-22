@@ -128,7 +128,7 @@ function updateDashboard() {
         return navigate('/login')
     }
 
-    updateElement('description', account.description);
+    updateElement('descriptionDash', account.description);
     updateElement('balance', account.balance.toFixed(2));
     updateElement('currency', account.currency);
 
