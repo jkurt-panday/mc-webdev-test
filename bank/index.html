@@ -6,6 +6,7 @@
     <title>Bank App</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <!-- This is where you'll work -->
@@ -61,31 +62,54 @@
 
     <!-- dashboard page template -->
      <template id="dashboard">
-        <header>
-            <h1>Bank App</h1>
-            <a href="/login" onclick="onLinkClick(event)">Logout</a><br>
-            <a href="/credit" onclick="onLinkClick(event)">Credit</a>
-        </header>
-        <section>
-            Balance: <span id="balance"></span><span id="currency"></span>
-        </section>
-        <section>
-            <h2 id="description"></h2>
-        </section>
-        <section>
-            <h2>Transactions</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Object</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody id="transactions"></tbody>
-            </table>
-        </section>
-     </template>
+        <h1>Dashboard</h1>
+            <div id="dashCont">
+                <!-- nav part -->
+                <header>
+                    <div id="dashNav">
+                        <button class="dashBut">
+                            <a href="/login" onclick="onLinkClick(event)">Logout</a><br>
+                        </button>
+                        <button class="dashBut">
+                            <a href="/credit" onclick="onLinkClick(event)">Credit</a>
+                        </button>
+                    </div>
+                </header>
+
+                <!-- balance part -->
+                <section id="dashSect">
+                    <h5>Balance:</h5>
+                    <div id="numBal">
+                        <span id="balance"></span><span id="currency"></span>
+                    </div>
+                </section>
+
+                <!-- description part -->
+                <section id="descSect">
+                    <div id="descDash">
+                        <h2 id="descriptionDash"></h2>
+                    </div>
+                    <div id="descBut">
+                        <button id="addTra">Add transaction</button>
+                    </div>
+                </section>
+
+                <!-- table part -->
+                <section>
+                    <h2>Transactions</h2>
+                    <table id="tranTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Object</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions"></tbody>
+                    </table>
+                </section>
+            </div>
+         </template>
 
      <template id="transaction">
         <tr>
@@ -101,7 +125,11 @@
     <template id="credit">
         <header>
             <h1>Credit</h1>
-            <a href="/dashboard" onclick="onLinkClick(event)">Dashboard</a>
+            <div id="dashNav">
+                <button class="dashBut">
+                    <a href="/dashboard" onclick="onLinkClick(event)">Dashboard</a>
+                </button>
+            </div>
         </header>
         <section>
             <br>
