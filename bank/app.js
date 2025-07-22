@@ -1,6 +1,8 @@
 // displaying template elements
 
-let account = null;
+let state = Object.freeze({
+    account: null
+});
 
 const routes = {
     '/login': {templateId: 'login'},
@@ -71,7 +73,8 @@ async function register() {
 
     console.log('Account created', result)
 
-    account = result;
+    // state.account = result;
+    updateState('account', result)
     navigate('/dashboard')
 }
 
@@ -102,7 +105,8 @@ async function login() {
         return updateElement('loginError', data.error);
     }
 
-    account = data
+    // state.account = data
+    updateState('account', data)
     navigate('/dashboard')
 }
 
@@ -123,9 +127,12 @@ function updateElement(id, textOrNode) {
 }
 
 function updateDashboard() {
+    // refactoring the account variable for the next changes
+    const account = state.account
+
     // check if account exist or not
     if (!account) {
-        return navigate('/login')
+        return logout();
     }
 
     updateElement('descriptionDash', account.description);
@@ -151,4 +158,20 @@ function createTransactionRow(transaction) {
     tr.children[1].textContent = transaction.object;
     tr.children[2].textContent = transaction.amount.toFixed(2);
     return transactionRow;
+}
+
+// to centralize state change
+function updateState(property, newData) {
+    state = Object.freeze({
+        ...state,
+        [property]: newData
+    });
+
+    console.log(state)
+}
+
+// to exit dashboard and account
+function logout() {
+    updateState('account', null);
+    navigate('/login');
 }
