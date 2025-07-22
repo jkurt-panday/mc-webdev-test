@@ -1,0 +1,141 @@
+/* dashboard styling */
+
+/* * {
+    border: 1px solid black;
+    margin: 0;
+} */
+
+/* header part */
+#dashboard {
+    border: 1px solid black;
+}
+
+.dashBut {
+    background-color: #444455;
+}
+.dashBut, a {
+    color:  white;
+    text-decoration: none;
+    width: 100px;
+    padding: 20px 5px;
+    margin: 5px;
+    font-weight: 700;
+}
+
+#dashNav {
+    background-color: #444455;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 5px;
+}
+
+/* balance part */
+#dashSect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color:  white;
+}
+
+#dashSect, h5 {
+    margin: 10px 0;
+}
+
+#numBal {
+    display: flex;
+    font-size: 2rem;
+}
+
+/* description part */
+#descSect {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-color: whitesmoke;
+    height: 10%;
+}
+
+#descriptionDash {
+    color: blue;
+}
+
+#descDash, #descBut {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+#descriptionDash {
+    width: fit-content;
+    margin-left: 10px;
+}
+
+#descBut {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0px;
+}
+
+#addTra {
+    color: white;
+
+    background-color: #444455;
+    padding: 15px;
+    width: 50%;
+    margin-right: 5px;
+}
+
+/* table part */
+table {
+    /* border: 1px solid black; */
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f5f5f6;
+}
+
+#dashCont {
+    margin: 0;
+}
+
+#tranTable thead {
+    border-bottom: 1px solid #9999aa;
+}
+
+th {
+    padding: 5px;
+    text-align: left;
+}
+
+tr > th:last-child {
+    text-align: right;
+}
+
+tr {
+    padding: 5px 0;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: #cfe5f2;
+}
+
+tr:nth-child(even):hover {
+    background-color: #9aa7af
+}
+
+tr:hover {
+    background-color: #9aa7af;
+}
+
+tr > td:last-child {
+    text-align: right;
+
+}
+
+td {
+    padding: 2px 5px;
+}
